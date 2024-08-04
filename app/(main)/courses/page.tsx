@@ -1,5 +1,10 @@
 import { getCourses, getUserProgress } from "@/db/queries";
 import { List } from "./list";
+import { courses } from "@/db/schema";
+
+export const sortCourses = (courseList: typeof courses.$inferSelect[]) => {
+  return [...courseList].sort((a, b) => a.title.localeCompare(b.title));
+}
 
 const CoursesPage = async () => {
   const getCoursesPromise = getCourses();
@@ -16,7 +21,7 @@ const CoursesPage = async () => {
         Language Courses
       </h1>
       <List
-        courses={courses}
+        courses={sortCourses(courses)}
         activeCourseId={userProgress?.activeCourseId}
       />
     </div>
