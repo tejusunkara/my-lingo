@@ -17,9 +17,11 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Notes
+* Routes need a `page.tsx` file inside the folder to render the content
 ### Features
 * Built with Typescript
 * Using `shadcn/ui` to create a custom reusable component library
+
 
 ## Learn More
 
