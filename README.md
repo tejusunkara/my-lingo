@@ -19,8 +19,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Notes
 * Routes need a `page.tsx` file inside the folder to render the content
 ### Features
+
+A language learning Software as a Service (SaaS) similar to Duolingo.
 * Built with Typescript
 * Using `shadcn/ui` to create a custom reusable component library
+* Using `drizzle` to interact with the database
+* Using `neon` to connect to the database
+* Using `clerk` to handle authentication
+* Using `next-themes` to handle dark and light themes
+* Using `tailwindcss-animate` to add animations to the website
+* Using `lucide-react` to add icons to the website
+
 
 
 ## Learn More
