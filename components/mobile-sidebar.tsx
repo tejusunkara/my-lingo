@@ -7,7 +7,7 @@ import { SideBar } from "@/components/sidebar";
 import { Menu } from "lucide-react";
 
 export const MobileSidebar = () => {
-   return (
+  return (
     <Sheet>
       <SheetTrigger>
         <Menu className="text-white" />
@@ -16,5 +16,5 @@ export const MobileSidebar = () => {
         <SideBar />
       </SheetContent>
     </Sheet>
-   )
+  )
 }

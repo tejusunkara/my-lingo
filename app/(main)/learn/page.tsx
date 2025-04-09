@@ -5,7 +5,7 @@ import { UserProgress } from "@/components/user-progress";
 import { getUserProgress } from "@/db/queries";
 import { redirect } from "next/navigation";
 
- const LearnPage = async () => {
+const LearnPage = async () => {
   const userProgressData = getUserProgress();
 
   const [
@@ -29,10 +29,10 @@ import { redirect } from "next/navigation";
         />
       </StickyWrapper>
       <FeedWrapper>
-        <Header  title={userProgress.activeCourse.title} />
+        <Header title={userProgress.activeCourse.title} />
       </FeedWrapper>
     </div>
-  ); 
- };
+  );
+};
 
- export default LearnPage;
+export default LearnPage;
