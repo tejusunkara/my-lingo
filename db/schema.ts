@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { integer, pgEnum, pgTable, serial, text, boolean } from "drizzle-orm/pg-core"; 
+import { boolean, integer, pgEnum, pgTable, serial, text } from "drizzle-orm/pg-core"; 
 
 // courses data table
 export const courses = pgTable("courses", {
@@ -15,7 +15,7 @@ export const coursesRelations = relations(courses, ({ many }) => ({ // many-to-m
 export const units = pgTable("units", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
-  description: text("description").notNull(),
+  description: text("description").notNull(), 
   courseId: integer("course_id").references(() => courses.id, { onDelete: "cascade" }).notNull(),
   order: integer("order").notNull(),
 });
@@ -65,9 +65,8 @@ export const challengesRelations = relations(challenges, ({ one, many }) => ({
 export const challengeOptions = pgTable("challenge_options", {
   id: serial("id").primaryKey(),
   challengeId: integer("challenge_id").references(() => challenges.id, { onDelete: "cascade" }).notNull(),
-  option: text("option").notNull(),
   text: text("text").notNull(),
-  isCorrect: boolean("is_correct").notNull(),
+  correctOption: boolean("correct").notNull(),
   imageSrc: text("image_src"),
   audioSrc: text("audio_src"),
 });
@@ -81,8 +80,8 @@ export const challengeOptionsRelations = relations(challengeOptions, ({ one }) =
 
 export const challengeProgress = pgTable("challenge_progress", {
   id: serial("id").primaryKey(),
-  challengeId: integer("challenge_id").references(() => challenges.id, { onDelete: "cascade" }).notNull(),
   userId: text("user_id").notNull(),
+  challengeId: integer("challenge_id").references(() =>challenges.id, { onDelete: "cascade" }).notNull(),
   completed: boolean("completed").notNull().default(false),
 });
 

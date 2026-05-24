@@ -88,31 +88,28 @@ const main = async () => {
       {
         id: 1,
         challengeId: 1,
-        option: "el hombre",
-        text: "el hombre",
-        isCorrect: true,
-        imageSrc: "/man.svg",
-        audioSrc: "/es_man.mp3",
+        text: 'el hombre',
+        correctOption: true,
+        imageSrc: '/man.svg',
+        audioSrc: '/es_man.mp3'
       },
       {
-        id: 2,
+        id: 1,
         challengeId: 1,
-        option: "la mujer",
-        text: "la mujer",
-        isCorrect: false,
-        imageSrc: "/woman.svg",
-        audioSrc: "/es_woman.mp3",
+        text: 'el mujer',
+        correctOption: false,
+        imageSrc: '/woman.svg',
+        audioSrc: '/es_woman.mp3'
       },
       {
-        id: 3,
+        id: 1,
         challengeId: 1,
-        option: "el niño",
-        text: "el niño",
-        isCorrect: false,
-        imageSrc: "/boy.svg",
-        audioSrc: "/es_boy.mp3",
+        text: 'el niño',
+        correctOption: false,
+        imageSrc: '/boy.svg',
+        audioSrc: '/es_boy.mp3'
       },
-    ]);
+    ])
     console.log("Seeding finished");
   } catch (error) {
     console.error(error);
