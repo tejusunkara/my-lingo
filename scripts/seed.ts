@@ -66,12 +66,30 @@ const main = async () => {
         unitId: 1,
         order: 1,
       },
-      // {
-      //   id: 2,
-      //   title: "Adjectives",
-      //   unitId: 1,
-      //   order: 2,
-      // },
+      {
+        id: 2,
+        title: "Verbs",
+        unitId: 1,
+        order: 2,
+      },
+      {
+        id: 3,
+        title: "Verbs",
+        unitId: 1,
+        order: 3,
+      },
+      {
+        id: 4,
+        title: "Verbs",
+        unitId: 1,
+        order: 4,
+      },
+      {
+        id: 5,
+        title: "Verbs",
+        unitId: 1,
+        order: 5,
+      },
     ]);
 
     await db.insert(schema.challenges).values([
@@ -94,7 +112,7 @@ const main = async () => {
         audioSrc: '/es_man.mp3'
       },
       {
-        id: 1,
+        id: 2,
         challengeId: 1,
         text: 'el mujer',
         correctOption: false,
@@ -102,7 +120,7 @@ const main = async () => {
         audioSrc: '/es_woman.mp3'
       },
       {
-        id: 1,
+        id: 3,
         challengeId: 1,
         text: 'el niño',
         correctOption: false,

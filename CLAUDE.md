@@ -55,3 +55,17 @@ Components use `shadcn/ui` (configured in `components.json`) with Tailwind CSS. 
 
 - `DATABASE_URL` — Neon connection string
 - Clerk keys (`NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`)
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for `tejusunkara/my-lingo`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default canonical label strings (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context repo — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.

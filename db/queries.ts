@@ -2,7 +2,7 @@ import { cache } from "react";
 import db from "./drizzle";
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
-import { courses, userProgress, units, } from "./schema";
+import { courses, userProgress, units, challengeProgress, } from "./schema";
 
 export const getUserProgress = cache(async () => {
   const { userId } = await auth();
@@ -24,20 +24,25 @@ export const getUserProgress = cache(async () => {
 
 export const getUnits = cache(async () => {
   const userProgress = await getUserProgress();
+  const { userId} = await auth();
 
-  if(!userProgress?.activeCourseId) {
-    return null;
+  if(!userId || !userProgress?.activeCourseId) {
+    return [];
   }
 
   // TODO: update to use Drizzle SQL query builder
+  // TODO: add ordering
   const data = await db.query.units.findMany({
     where: eq(units.courseId, userProgress.activeCourseId),
     with: {
       lessons: {
+        orderBy: (lessons, { asc }) => [asc(lessons.order)],
         with: {
           challenges: {
             with: {
-              challengeProgress: true,
+              challengeProgress: {
+                where: eq(challengeProgress.userId, userId),
+              },
             },
           }
         },
