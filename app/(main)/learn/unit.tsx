@@ -1,5 +1,6 @@
 import { UnitBanner } from "./unit-banner";
 import { LessonButton } from "./lesson-button";
+import { lessons, units } from "@/db/schema";
 
 type Props = {
   id: number;

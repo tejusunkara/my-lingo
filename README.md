@@ -38,6 +38,22 @@ A language learning Software as a Service (SaaS) similar to Duolingo.
 * Using `shadcn/ui` to create a custom reusable component library
 
 
+## Trade-off Analysis
+
+### State Management: Zustand vs Redux
+
+This project uses **Zustand** for global client state (e.g. modal open/close). Both Zustand and Redux solve the same problem — sharing state across components without prop drilling — but differ in how much structure they impose.
+
+| | Redux | Zustand |
+|---|---|---|
+| Boilerplate | High — actions, reducers, selectors, dispatch | Minimal — one `create()` call |
+| Pattern | Strict: state updated only via dispatched actions | Flexible: call `set()` directly |
+| DevTools | Excellent — time-travel debugging, full action log | Basic DevTools support |
+| Bundle size | Larger (even with Redux Toolkit) | ~1kb |
+| Best for | Large teams, complex state, auditability | Small-to-medium apps, simple shared state |
+
+Redux's strictness pays off on large teams where every state change needs a named action and a full audit trail. For a smaller app like this one, that ceremony adds friction without benefit. Zustand's low barrier to use makes it the better fit here — a store for a modal toggle is a single file with three properties.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
